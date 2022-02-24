@@ -1,11 +1,13 @@
 /**
   ******************************************************************************
   * @file           : eeprom.hpp
-  * @brief          : Header for the EEPROM
+  * @brief          : Contains the class functionalities of the EEPROM
   ******************************************************************************
   * @attention
+  * Adapted from EEPROM and STM32 by Controllers Tech found at: 
+  * https://controllerstech.com/eeprom-and-stm32/
   *
-  *
+  * Author: TeamArrow
   * Date Last Updated: 24/02/2022
   * ***************************************************************************
   */
