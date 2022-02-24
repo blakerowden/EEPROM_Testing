@@ -103,15 +103,15 @@ HAL_StatusTypeDef EEPROM::read(uint16_t page, uint16_t offset, uint8_t *data, ui
 void EEPROM::page_erase (uint16_t page)
 {
 	// calculate the memory address based on the page number
-	int paddrPosition = log(PAGE_SIZE)/log(2);
+	int paddrPosition = log(_pageSize) / log(2);
 	uint16_t MemAddress = page<<paddrPosition;
 
 	// create a buffer to store the reset values
-	uint8_t data[PAGE_SIZE];
-	memset(data, 0xff, PAGE_SIZE);
+	uint8_t data[_pageSize];
+	memset(data, 0xff, _pageSize);
 
 	// write the data to the EEPROM
-	HAL_I2C_Mem_Write(EEPROM_I2C, EEPROM_ADDR, MemAddress, 2, data, PAGE_SIZE, 1000);
+	HAL_I2C_Mem_Write(_hi2c, _devAddress, MemAddress, 2, data, _pageSize, _timeout);
 
 	HAL_Delay (5);  // write cycle delay 
 }

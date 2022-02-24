@@ -15,15 +15,12 @@
 #ifndef EEPROM_HPP
 #define EEPROM_HPP
 
-/* Defines -------------------------------------------------------------------*/
-
-#define MAX_EEPROM_TIMEOUT 100
-
 /* Includes ------------------------------------------------------------------*/
 
-#include <stdint.h>
+#include <cstdint>
+#include <cstring>
+#include <cmath>
 #include "stm32l4xx_hal.h"
-#include "math.h"
 
 /* Class Structure -----------------------------------------------------------*/
 
@@ -74,7 +71,7 @@ public:
      * @page is the number of page to erase
      * In order to erase multiple pages, just use this function in the for loop
      */
-    void page_erase (uint16_t page);
+    void page_erase(uint16_t page);
 
 private:
 
@@ -84,6 +81,7 @@ private:
      * @param offset is the start byte offset in the page. Range from 0 to _pageSize-1
      */
     uint16_t bytes_to_write(uint16_t size, uint16_t offset);
+
 };
 
 #endif // EEPROM_HPP
